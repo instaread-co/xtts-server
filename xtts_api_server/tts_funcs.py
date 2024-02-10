@@ -561,7 +561,7 @@ class TTSWrapper:
 
 
     # MAIN FUNC
-    def process_tts_to_file(self, text, speaker_name_or_path, language, file_name_or_path="out.wav", stream=False):
+    def process_tts_to_file(self, text, speaker_name_or_path, language, file_name_or_path, stream=False):
         if file_name_or_path == '' or file_name_or_path is None:
             file_name_or_path = self.determine_output_file(self.output_folder) 
         try:

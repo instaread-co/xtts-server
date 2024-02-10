@@ -139,7 +139,7 @@ class SynthesisFileRequest(BaseModel):
     speaker_wav: Optional[str] = None
     language: str
     file_name_or_path: str
-    save_path: Optional[str] = None
+    # save_path: Optional[str] = None
 
 class TTSStreamRequest(BaseModel):
     text: str
@@ -324,8 +324,8 @@ async def tts_to_audio(request: SynthesisRequest):
             output_file_path = XTTS.process_tts_to_file(
                 text=request.text,
                 speaker_name_or_path=request.speaker_wav,
-                language=request.language.lower(),
-                file_name_or_path=request.save_path
+                language=request.language.lower()
+                # file_name_or_path=request.save_path
             )
 
             # Return the file in the response
