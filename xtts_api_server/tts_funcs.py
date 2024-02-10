@@ -570,8 +570,8 @@ class TTSWrapper:
 
     # MAIN FUNC
     def process_tts_to_file(self, text, speaker_name_or_path, language, file_name_or_path="out.wav", stream=False):
-        if file_name_or_path == '' or file_name_or_path is None:
-            file_name_or_path = self.determine_output_file(self.output_folder) 
+
+        file_name_or_path = self.determine_output_file(self.output_folder) 
         try:
             # Check speaker_name_or_path in models_folder and speakers_folder
             if speaker_name_or_path:
@@ -611,7 +611,7 @@ class TTSWrapper:
                 output_file = os.path.join(self.output_folder, file_name_or_path)
 
             # Replace double quotes with single, asterisks, carriage returns, and line feeds
-            clear_text = text
+            clear_text = self.clean_text(text)
             # logger.info("clean text",clear_text)
             # Generate a dictionary of the parameters to use for caching.
             text_params = {
