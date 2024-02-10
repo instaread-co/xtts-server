@@ -76,7 +76,7 @@ def install_deepspeed_based_on_python_version():
 def upgrade_tts_package():
     try:
         logger.warning("TTS version is outdated, attempting to upgrade TTS...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install","-q", "--force-reinstall","--no-deps", "tts==0.21.3"])
+        # subprocess.check_call([sys.executable, "-m", "pip", "install","-q", "--force-reinstall","--no-deps", "tts==0.21.3"])
         logger.info("TTS has been successfully upgraded ")
     except Exception as e:
         logger.error(f"An error occurred while upgrading TTS: {e}")

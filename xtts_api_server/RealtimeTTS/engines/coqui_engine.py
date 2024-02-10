@@ -552,7 +552,7 @@ class CoquiEngine(BaseEngine):
         progress_bar.close()
 
     @staticmethod
-    def download_model(model_name = "v2.0.2", local_models_path = None):
+    def download_model(model_name = "v2.0.3", local_models_path = None):
 
         # Creating a unique folder for each model version
         if local_models_path and len(local_models_path) > 0:
