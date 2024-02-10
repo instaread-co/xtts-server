@@ -259,11 +259,11 @@ class TTSWrapper:
     # SPEAKER FUNCS
     def get_or_create_latents(self, speaker_name, speaker_wav):
         speaker_name = speaker_name.lower()
-        filter = "highpass=75,lowpass=8000,"
-        trim_silence = "areverse,silenceremove=start_periods=1:start_silence=0:start_threshold=0.02,areverse,silenceremove=start_periods=1:start_silence=0:start_threshold=0.02"
+        # filter = "highpass=75,lowpass=8000,"
+        # trim_silence = "areverse,silenceremove=start_periods=1:start_silence=0:start_threshold=0.02,areverse,silenceremove=start_periods=1:start_silence=0:start_threshold=0.02"
         # ffmpeg convert to wav and apply afftn denoise filter. y to overwrite and avoid caching
       
-        os.system(f"ffmpeg -i {speaker_wav} -af {filter}{trim_silence} -y {speaker_wav}")
+        # os.system(f"ffmpeg -i {speaker_wav} -af {filter}{trim_silence} -y {speaker_wav}")
        
         if speaker_name not in self.latents_cache:
             
