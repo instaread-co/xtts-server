@@ -1,17 +1,17 @@
 version: "3.4"
 
 services:
-  # apiserver:
-  #   image: nginx:alpine
-  #   container_name: webserver
-  #   restart: unless-stopped
-  #   ports:
-  #     - "80:80"
-  #     - "443:443"
-  #   volumes:
-  #     - ./nginx.conf:/etc/nginx/nginx.conf:ro
-  #   depends_on:
-  #     - xttsapiserver
+  apiserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - xttsapiserver
 
   xttsapiserver:
     image: xttsapiserver
@@ -21,7 +21,7 @@ services:
       context: ..
       dockerfile: ./docker/Dockerfile
     ports:
-      - "${HOST_PORT:-80}:${CONTAINER_PORT:-80}"
+      - "${HOST_PORT:-8020}:${CONTAINER_PORT:-8020}"
     volumes:
       - ./xtts-server:/xtts-server
     deploy:
