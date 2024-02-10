@@ -324,15 +324,14 @@ async def tts_to_audio(request: SynthesisRequest):
             output_file_path = XTTS.process_tts_to_file(
                 text=request.text,
                 speaker_name_or_path=request.speaker_wav,
-                language=request.language.lower()
-                # file_name_or_path=request.save_path
+                language=request.language.lower()               
             )
 
             # Return the file in the response
             return FileResponse(
                 path=output_file_path,
                 media_type='audio/wav',
-                filename="output.wav",
+                filename=request.save_path+".wav",
                 )
 
         except Exception as e:
