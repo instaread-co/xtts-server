@@ -469,6 +469,7 @@ class TTSWrapper:
             gpt_cond_latent=gpt_cond_latent,
             **self.tts_settings, # Expands the object with the settings and applies them for generation
             stream_chunk_size=self.stream_chunk_size,
+            enable_text_splitting=True
         )
         
         for chunk in chunks:
