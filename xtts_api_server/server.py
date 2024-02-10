@@ -151,6 +151,7 @@ class SynthesisRequest(BaseModel):
     text: str
     speaker_wav: str 
     language: str
+    save_path: Optional[str] = None
 
 
 @app.get("/speakers_list")
